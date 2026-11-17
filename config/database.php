@@ -1,11 +1,10 @@
 <?php
 // config/database.php
 
-$host = 'localhost';
-$dbname = 'gestion_universite';
-$username = 'root';
-$password = ''; // vide par défaut sous XAMPP
-
+$host = getenv('DB_HOST') ?: 'localhost';
+$dbname = getenv('DB_NAME') ?: 'gestion_universite';
+$username = getenv('DB_USER') ?: 'root';
+$password = getenv('DB_PASS') ?: '';
 try {
     $pdo = new PDO(
         "mysql:host=$host;dbname=$dbname;charset=utf8mb4",
